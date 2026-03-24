@@ -1,0 +1,11 @@
+GIVEN A IMPLIES NOT B
+DERIVE B IMPLIES NOT A
+ASSUME B
+    ASSUME A
+        APPLY IMP_ELIM A, A IMPLIES NOT B   # yield ¬B from lines 1, 4
+        APPLY NOT_ELIM B, NOT B             # yield ⊥ from lines 3, 5
+    END
+    APPLY NOT_INTRO A, A                    # yield ¬A from lines 4-7
+END
+APPLY IMP_INTRO B, NOT A                    # yield B → ¬A from lines 3-9
+CONCLUDE
